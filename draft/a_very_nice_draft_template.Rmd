@@ -1,0 +1,195 @@
+---
+title: Testing the invariance of Authoritarianism scales
+
+author:  
+- name: Alberto Stefanelli
+  affilnum: '1,2'
+  email: alberto.stefanelli.main@gmail.com
+#- name: null
+#  affilnum: null
+#  email: null
+
+affiliation:
+- affilnum: 1
+  affil: Centre for Sociological Research, KU Leuven, Belgium
+- affilnum: 2
+  affil: Central European University, Budapest, Hungary
+#- affilnum: 3
+#  affil: null
+
+##author: |
+ # | [Alberto Stefanelli](https://alberto-stefanelli.netlify.com/) ^[[Centre for Sociological Research, KU Leuven, Belgium](https://soc.kuleuven.be/ceso)]
+date: "`r Sys.Date()`"
+bibliography: /Users/serg/gdrive/academia/library.bib
+link-citations: true
+urlcolor: red
+linkcolor: blue
+abstract: Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enimad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+output:
+  pdf_document:
+    fig_caption: yes
+    fig_width: 7
+    fig_height: 7
+    keep_tex: no
+    number_sections: yes
+    template: manuscript.latex
+    includes:
+      in_header: manuscript_header.tex
+fontsize: 11pt
+classoption: twoside
+geometry: margin=4cm
+linenumbers: yes
+header-includes:
+  - \usepackage{fancyhdr}
+  - \usepackage{longtable}
+  - \fancyhf{}
+  - \fancyhead[OR]{Alberto Stefanelli}
+  - \fancyhead[EL]{thetitle}
+  - \fancyfoot[C]{\thepage}
+  - \pagestyle{fancy}
+  - \renewcommand{\headrulewidth}{0.4pt}
+  - \renewcommand{\footrulewidth}{0pt}
+---
+
+
+* * * *
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(
+  echo = TRUE,
+  warning = FALSE,
+  message = FALSE,
+  comment = "#",
+  fig.width = 8,
+  fig.heigth = 8
+  #R.options = list(width = 60)
+)
+```
+
+
+# INTRODUCTION
+
+
+Write your introduction here. You can cite bibliography like this [@stefanelli_is_2017-1] or in text like @stefanelli_is_2017-1, if you provide a `BibTeX` file with references. See http://rmarkdown.rstudio.com/authoring_bibliographies_and_citations.html for more information. Or you could also use [knitcitations](https://cran.r-project.org/web/packages/knitcitations/index.html).
+
+
+You can even specifiy the desired output format for your bibliography by including a style file for a specific journal (e.g. "ecology.csl"). Many different bibliography styles (CSL files) can be obtained at http://citationstyles.org/ or https://github.com/citation-style-language/styles.
+
+
+# METHODS
+
+## Study Area
+
+We worked in a **beautiful** place with lots of trees, like *Quercus suber* and *Laurus nobilis*.
+
+
+## Data collection and analysis
+
+```{r read_data, eval = FALSE, echo = FALSE}
+x <- rnorm(1000)
+y <- rnorm(1000)
+```
+
+We applied a linear model where
+
+$$
+y_{i} = \alpha + \beta*x_{i} 
+$$
+
+```{r model, echo = FALSE, eval = FALSE}
+model <- lm(y ~ x)
+```
+
+
+
+# RESULTS
+
+Trees in forest A grew taller than those in forest B (mean height: `r mean(25, 31, 28)` versus `r mean(13, 19, 16)` m). And many more cool results that get updated dynamically.
+
+
+
+# DISCUSSION
+
+Discuss.
+
+
+
+# CONCLUSIONS
+
+
+
+# ACKNOWLEDGEMENTS
+
+
+
+```{r write_citations, cache=FALSE, include=FALSE}
+#library(knitcitations)
+#write.bibtex(file="/Users/serg/gdrive/academia/library.bib")
+```
+
+
+\clearpage
+
+
+\listoftables
+
+
+\newpage
+
+```{r Fig1  , results='asis', echo=FALSE, cache=FALSE, include=TRUE}
+#install.packages("knitr",repos = "http://cran.us.r-project.org")
+#library("knitr")
+knitr::kable(head(iris), caption = "A glimpse of the famous *Iris* dataset.")
+```
+
+
+\newpage
+
+```{r Fig2 , results='asis', echo=FALSE, cache=FALSE}
+#install.packages("knitr",repos = "http://cran.us.r-project.org")
+#library("knitr")
+knitr::kable(mtcars[10:16, ], caption = "Now a subset of mtcars dataset.")
+```
+
+
+\clearpage
+
+\listoffigures
+
+
+\newpage
+
+```{r Fig3 ,  results='asis', echo=FALSE, fig.cap="Just my first figure with a very fantastic caption.", cache=FALSE,fig.width = 8,fig.height = 8}
+x <- rnorm(100)
+y <- jitter(x, 1000)
+plot(x, y)
+```
+
+\clearpage
+\newpage
+
+
+
+```{r Fig 4,  results='asis', echo=FALSE, fig.cap="Second figure in landscape format.", cache=FALSE, fig.width = 5,fig.height = 5}
+a <- sort(rnorm(100))
+b <- c(rep("Group Small", 35), rep("Group Big", 65))
+boxplot(a ~ b)
+```
+
+
+\newpage
+
+
+
+```{r session, echo = FALSE, eval = FALSE}
+# set eval = FALSE if you don't want this info (useful for reproducibility) to appear 
+sessionInfo()
+```
+
+\newpage
+\pagebreak
+\clearpage
+
+# Bibliography
+# References
+
